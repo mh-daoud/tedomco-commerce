@@ -1,0 +1,66 @@
+{
+  "kind": "collectionType",
+  "collectionName": "restaurants",
+  "info": {
+    "singularName": "restaurant",
+    "pluralName": "restaurants",
+    "displayName": "Restaurant"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "WorkStatus": {
+      "type": "enumeration",
+      "enum": [
+        "Open",
+        "Closed",
+        "Busy"
+      ],
+      "default": "Open",
+      "required": true
+    },
+    "ThumImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "DeliveryFee": {
+      "type": "integer",
+      "default": 0
+    },
+    "MinimumOrderAmount": {
+      "type": "integer",
+      "default": 0
+    },
+    "Tags": {
+      "type": "blocks"
+    },
+    "Rate": {
+      "type": "decimal"
+    },
+    "lon": {
+      "type": "decimal"
+    },
+    "lat": {
+      "type": "decimal"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "restaurants"
+    }
+  }
+}
